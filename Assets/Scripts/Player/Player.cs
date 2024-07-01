@@ -3,38 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour, IPlayerInput, IPlayerMovement
+public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed;
+    PlayerMovement playerMovement; // 플레이어 이동
+    PlayerInput playerInput; // 플레이어 입력
 
-    private Rigidbody2D _rigid;
-    private Vector2 _inputVec;
-    public Vector2 InputVec => _inputVec;
-
-    private void Awake()
+    void Awake()
     {
-        _rigid = GetComponent<Rigidbody2D>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
-    private void Update()
+    void Update()
     {
-        Move();
-    }
-
-    public void OnMove(InputValue value)
-    {
-        _inputVec = value.Get<Vector2>();
-    }
-
-    public void Move()
-    {
-        Vector2 nextVec = _inputVec * _speed * Time.deltaTime;
-        _rigid.MovePosition(_rigid.position + nextVec);
-    }
-
-    public void MoveTo(Vector2 des)
-    {
-        // TODO
+        playerMovement.Move(playerInput.InputVec);
     }
 }

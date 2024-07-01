@@ -7,6 +7,6 @@ using UnityEngine;
 /// </summary>
 public interface IPlayerMovement
 {
-    public void Move(); // 일반적인 이동
+    public void Move(Vector2 inputVec); // 일반적인 이동
     public void MoveTo(Vector2 des); // 특정 지점으로 이동
 }
