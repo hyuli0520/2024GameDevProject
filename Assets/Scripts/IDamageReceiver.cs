@@ -25,5 +25,5 @@ public interface IDamage
 
 public interface ITypeDamage : IDamage
 {
-    public Type type { get; }
+    public Type Type { get; }
 }

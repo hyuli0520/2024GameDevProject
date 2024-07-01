@@ -9,9 +9,9 @@ public class HealthTypeComponent : HealthComponent, ITypeDamageReceiver
 
     public void GetTypeDamage(ITypeDamage damage)
     {
-        if (type.strongType == damage.type)
+        if (type.strongType == damage.Type)
             Health -= (damage.Amount * 0.5f);
-        else if (type.weakType == damage.type)
+        else if (type.weakType == damage.Type)
             Health -= (damage.Amount * 1.5f);
         else
             Health -= damage.Amount;
