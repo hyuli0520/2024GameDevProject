@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TypeAttack : Bullet, ITypeDamage
 {
-    public Type type => _type;
+    public Type Type => _type;
 
     [SerializeField]
     Type _type;
