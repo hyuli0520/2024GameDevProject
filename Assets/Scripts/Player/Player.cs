@@ -20,5 +20,10 @@ public class Player : MonoBehaviour
     {
         playerMovement.Move(playerInput.InputVec);
         playerMovement.LookAtMouse();
+
+        if(playerInput.InputMouseClick)
+        {
+            playerAttack.Shoot();
+        }
     }
 }
