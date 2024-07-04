@@ -11,6 +11,9 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     private bool _inputMouseClick;
     public bool InputMouseClick => _inputMouseClick;
 
+    private Vector2 _mousePos;
+    public Vector2 MousePos => _mousePos;
+
     public void OnMove(InputValue value)
     {
         _inputVec = value.Get<Vector2>();
@@ -19,6 +22,11 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     public void OnFire(InputValue value)
     {
         _inputMouseClick = value.isPressed;
+    }
+
+    public void OnLook(InputValue value)
+    {
+        _mousePos = value.Get<Vector2>();
     }
 
 }
