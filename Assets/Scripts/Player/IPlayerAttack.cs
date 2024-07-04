@@ -7,4 +7,5 @@ using UnityEngine;
 /// </summary>
 public interface IPlayerAttack
 {
+    public void Shoot();
 }

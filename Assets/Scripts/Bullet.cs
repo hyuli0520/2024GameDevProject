@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IDamage
 {
-    public float Amount => damage;
+    public float Amount => _damage;
 
     [SerializeField]
-    float damage = 1;
+    private float _damage = 1;
+    [SerializeField]
+    private float _bulletSpeed;
+    private float _destroyBulletTime = 2;
+
+    void Start()
+    {
+        StartCoroutine(DestroyBullet());
+    }
+
+    void Update()
+    {
+        transform.Translate(Vector2.right * _bulletSpeed * Time.deltaTime);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,5 +28,11 @@ public class Bullet : MonoBehaviour, IDamage
         {
             damageReceiver.GetDamage(this);
         }
+    }
+
+    private IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(_destroyBulletTime);
+        Destroy(gameObject);
     }
 }

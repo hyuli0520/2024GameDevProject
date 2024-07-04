@@ -25,10 +25,10 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         // TODO   
     }
 
-    public void LookAtMouse()
+    public void LookAtMouse(Vector2 inputMousePos)
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(inputMousePos);
+        Vector2 direction = mousePos - (Vector2)transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }

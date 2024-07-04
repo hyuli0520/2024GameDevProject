@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerMovement.Move(playerInput.InputVec);
-        playerMovement.LookAtMouse();
+        playerMovement.LookAtMouse(playerInput.MousePos);
+
+        if(playerInput.InputMouseClick)
+        {
+            playerAttack.Shoot();
+        }
     }
 }
