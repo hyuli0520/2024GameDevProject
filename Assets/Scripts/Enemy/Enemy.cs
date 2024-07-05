@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour, IDamage
 
     void FollowPlayer()
     {
+        if (Player.instance == null)
+            return;
+
         Vector2 dirVec = Player.instance.transform.position - _rigid.transform.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.deltaTime;
         _rigid.MovePosition(_rigid.transform.position + (Vector3)nextVec);
