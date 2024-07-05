@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamage
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         FollowPlayer();
     }
