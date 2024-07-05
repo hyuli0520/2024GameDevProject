@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> _enemyPrefabList;
 
     [SerializeField]
-    private float spawnRate = 3;
+    private float _spawnDelay = 3;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnRate);
+            yield return new WaitForSeconds(_spawnDelay);
             int rand = Random.Range(0, _enemyPrefabList.Count);
             GameObject enemyToSpawn = _enemyPrefabList[rand];
 
