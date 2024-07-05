@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour, IDamage
 
     public float speed;
 
-    [SerializeField]
-    private Transform _playerTransform;
     private Rigidbody2D _rigid;
 
     void Awake()
@@ -27,7 +25,7 @@ public class Enemy : MonoBehaviour, IDamage
 
     void FollowPlayer()
     {
-        Vector2 dirVec = _playerTransform.position - _rigid.transform.position;
+        Vector2 dirVec = Player.instance.transform.position - _rigid.transform.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.deltaTime;
         _rigid.MovePosition(_rigid.transform.position + (Vector3)nextVec);
         _rigid.velocity = Vector2.zero;
