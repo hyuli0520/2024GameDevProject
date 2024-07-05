@@ -4,9 +4,7 @@ using UnityEngine;
 
 public interface IDamageReceiver
 {
-
     public void GetDamage(IDamage damage);
-
 }
 
 public interface ITypeDamageReceiver : IDamageReceiver

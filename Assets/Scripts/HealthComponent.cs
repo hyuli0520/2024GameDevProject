@@ -17,8 +17,19 @@ public class HealthComponent : MonoBehaviour, IDamageReceiver
         Health = startHealth;
     }
 
+    private void Update()
+    {
+        if (Health < 0)
+            Die();
+    }
+
     public void GetDamage(IDamage damage)
     {
         Health -= damage.Amount;
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
